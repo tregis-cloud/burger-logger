@@ -15,7 +15,12 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+//View Routes
+app.get("/", function (req, res){
+    res.render("index");
+});
 
+//API Routes
 app.get("/api/config", function (req, res){
     res.json({ success: true,
     });
