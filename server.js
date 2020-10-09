@@ -1,6 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const mysql = require("mysql");
+const connection = require("./config/connection");
 
 const PORT = process.env.PORT || 8080;
 
@@ -17,6 +18,9 @@ app.set("view engine", "handlebars");
 
 //View Routes
 app.get("/", function (req, res){
+    connection.query("SELECT * FROM burger", function(err, data){
+console.table(data);
+    } )
     res.render("index");
 });
 
