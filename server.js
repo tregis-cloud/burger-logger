@@ -21,7 +21,7 @@ app.get("/", function (req, res){
     connection.query("SELECT * FROM burger", function(err, data){
 console.table(data);
     } )
-    res.render("index");
+    res.render("index"), {name: "Test"};
 });
 
 //API Routes
